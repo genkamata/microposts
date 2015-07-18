@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Microposts</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <%=s tylesheet_link_tag 'application', media: 'all' %>
+    <%=j avascript_include_tag 'application' %>
+      <%=c srf_meta_tags %>
 </head>
+
 <body>
-
-<%= yield %>
-
+  <% render 'layouts/header' %>
+    <div class="container">
+      <%=y ield %>
+    </div>
 </body>
+
 </html>
