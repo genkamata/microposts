@@ -12,11 +12,33 @@
 
       <%= f.label :password %>
       <%= f.password_field :password %>
-
+      
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation %>
 
+     
+      
+       <%= f.label :Home_Ttown %>
+      <%= f.text_field :Home_Town %>
+      
+      <label><%= f.radio_button :sex, "1" %>男</label>
+      <label><%= f.radio_button :sex, "2" %>女</label>
+      <%= f.label :age %>
+      <%= f.text_field :age %>
+<div class="birth_date_field">
+  <%= f.label :age %>
+  <%= raw sprintf(
+              f.date_select(
+                  :age,
+                  use_month_numbers: true,
+                  start_year:        1930,
+                  end_year:          (Time.now.year - 18),
+                  default:           Date.new(1989, 1, 1),
+                  date_separator:    '%s'),
+              '年 ', '月 ') + '日' %>
+</div>
+      <label><<%= f.label :country %></label><br />
+  <%= f.country_select :country, prompt: 'Please select a country' %>
       <%= f.submit "Update your account", class: "btn btn-large btn-primary" %>
     <% end %>
-  </div>
-</div>
+  
