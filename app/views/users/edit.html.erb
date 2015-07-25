@@ -1,0 +1,35 @@
+<h1>Edit profile</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      
+      <label><%= f.radio_button :sex, "1" %>Male</label>
+      <label><%= f.radio_button :sex, "2" %>Female</label><br>
+      
+      <%= f.label :age, "age" %>
+      <select name="data[age]">
+        <% 0.upto 100 do |n| %>
+         <option value="n"><%= n %></option>
+        <% end %>
+      </select>
+      
+      <%= f.label :country %>
+      <%= f.country_select :country, prompt: 'Please select a country' %>
+      
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Update", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
