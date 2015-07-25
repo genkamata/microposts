@@ -1,5 +1,7 @@
 <h1>
     <%= gravatar_for @user %>
-    <%= @user.name %>
+    <%= @user.name %><br>
 </h1>
-    <%= link_to "edit", edit_user_path(current_user) %>
+<h3>
+<%= link_to "Edit Profile", edit_user_path, class: "btn btn-lg btn-success" %>
+</h3>
