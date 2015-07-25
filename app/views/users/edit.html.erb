@@ -10,10 +10,10 @@
       <label><%= f.radio_button :sex, "1" %>Male</label>
       <label><%= f.radio_button :sex, "2" %>Female</label><br>
       
-      <%= f.label :age, "age" %>
-      <select name="data[age]">
+      <label><%= f.label :age, "age" %></label>
+      <select name="user[age]">
         <% 0.upto 100 do |n| %>
-         <option value="n"><%= n %></option>
+         <option value="<%= n %>"><%= n %></option>
         <% end %>
       </select>
       
