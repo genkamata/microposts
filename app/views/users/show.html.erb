@@ -8,12 +8,12 @@
       <ul>
         <li>
           <%= link_to followings_user_path(@user) do %>
-            フォロー<br /><%= @follower_num %>
+            follow<br /><%= @follower_num %>
           <% end %>
         </li>
         <li>
           <%= link_to followers_user_path(@user) do %>
-            フォロワー<br /><%= @followed_num %>
+            follower<br /><%= @followed_num %>
           <% end %>
         </li>
       </ul>
