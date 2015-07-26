@@ -5,6 +5,19 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <ul>
+        <li>
+          <%= link_to followings_user_path(@user) do %>
+            フォロー<br /><%= @follower_num %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to followers_user_path(@user) do %>
+            フォロワー<br /><%= @followed_num %>
+          <% end %>
+        </li>
+      </ul>
+      <h4><%= link_to "Edit Profile", edit_user_path, class: "btn btn-lg btn-success" %></h4>
     </section>
   </aside>
   <div class="col-md-8">
@@ -14,7 +27,7 @@
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
-      <h4><%= link_to "Edit Profile", edit_user_path, class: "btn btn-lg btn-success" %></h4>
+     
 
     <% end %>
   </div>
