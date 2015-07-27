@@ -1,34 +1,24 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-      <ul>
-        <li>
-          <%= link_to followings_user_path(@user) do %>
-            follow<br /><%= @follower_num %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to followers_user_path(@user) do %>
-            follower<br /><%= @followed_num %>
-          <% end %>
-        </li>
-      </ul>
-      <h4><%= link_to "Edit Profile", edit_user_path, class: "btn btn-lg btn-success" %></h4>
+      <%= gravatar_for @user %>
+      <h1><%= @user.name %></h1>
+      <strong>
+        <%= link_to "following", followings_user_path(@user) %>
+        <%= @user.following_users.count %><br>
+        <%= link_to "followed", followers_user_path(@user) %>
+        <%= @user.followed_users.count %><br>
+      </strong>
+      <h4><%= link_to "Edit Profile", edit_user_path, class: "btn btn-sm btn-success" %></h4>
     </section>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <h4>Microposts (<%= @user.microposts.count %>)</h4>
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
-     
-
     <% end %>
   </div>
 </div>
