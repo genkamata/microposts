@@ -1,1 +1,9 @@
 <h1>Followers</h1>
+<% @user ||= current_user %>
+ <p><span><%= link_to "view my profile", user_path %></span></P>
+ <P><span><%= link_to "following", followings_user_path %></span></P>
+  <% @user.followed_users.each do |user| %>
+       <table><th><%= gravatar_for user %></th></br>
+       <tr><%= user.name %></tr></table>
+  <% end %>
+</div>

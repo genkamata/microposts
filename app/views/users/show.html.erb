@@ -3,23 +3,30 @@
     <section class="user_info">
       <%= gravatar_for @user %>
       <h1><%= @user.name %></h1>
-      <strong>
-        <%= link_to "following", followings_user_path(@user) %>
-        <%= @user.following_users.count %><br>
-        <%= link_to "followed", followers_user_path(@user) %>
-        <%= @user.followed_users.count %><br>
-      </strong>
-      <h4><%= link_to "Edit Profile", edit_user_path, class: "btn btn-sm btn-success" %></h4>
+      <div id="stat">
+        <div class="stats">
+          <a href="<%= followings_user_path(@user) %>">
+            <strong id="following" class="stat">
+              <%= @user.following_users.count %>
+            </strong> following
+          </a>
+          <a href="<%= followers_user_path(@user) %>">
+            <strong id="followers" class="stat">
+              <%= @user.followed_users.count %>
+            </strong> followers
+          </a>
+        </div>
+       </div>
     </section>
+    <h4><%= link_to "Edit Profile", edit_user_path, class: "btn btn-sm btn-success" %></h4>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
-      <h4>Microposts (<%= @user.microposts.count %>)</h4>
-      <ol class="microposts">
-        <%= render @microposts %>
-      </ol>
+      <% if @user.microposts.any? %>
+        <h4>Microposts (<%= @user.microposts.count %>)</h4>
+        <ol class="microposts">
+          <%= render @microposts %>
+        </ol>
     <% end %>
   </div>
 </div>
-      
