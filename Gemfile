@@ -46,6 +46,8 @@ group :development, :test do
   gem 'carmen-rails'
 
   gem 'enumerize'
+  
+  gem 'paperclip'
 
 end
 
