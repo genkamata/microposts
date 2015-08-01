@@ -29,4 +29,14 @@
         </ol>
     <% end %>
   </div>
+  <% unless @article.pictures.empty? %>
+    <p>画像です</p>
+    <ul>
+      <% @article.pictures.each do |pic| %>
+          <li id="picture_<%= pic.id %>">
+            <%= image_tag pic.image.url %>
+          </li>
+      <% end %>
+    </ul>
+<% end %>
 </div>

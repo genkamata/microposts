@@ -1,11 +1,11 @@
 class Picture < ActiveRecord::Base
+  belongs_to :article
 
-  # photoをattachファイルとする。stylesで画像サイズを定義できる
-  has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }
+  has_attached_file :image,
+                    :storage => :s3,
+                    :s3_permissions => :public,
+                    :s3_credentials => "#{Rails.root}/config/s3.yml",
+                    :path => ":attachment/:id/:style.:extension"
 
-  # ファイルの拡張子を指定（これがないとエラーが発生する）
-  validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
-  def picture_params
-      params.require(:picture).permit(:name, :photo)
-  end
+  do_not_validate_attachment_file_type :image
 end

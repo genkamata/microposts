@@ -48,6 +48,8 @@ group :development, :test do
   gem 'enumerize'
   
   gem 'paperclip'
+  
+  gem 'rails_admin'
 
 end
 
