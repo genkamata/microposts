@@ -53,6 +53,4 @@ group :development, :test do
   
   gem 'paperclip'
 
- gem 'rails_admin'
-
 end
