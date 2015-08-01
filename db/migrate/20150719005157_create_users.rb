@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :password_digest
       
+      t.attachment :avatar
+
       t.timestamps
 
       t.index :email, unique: true # この行を追加
