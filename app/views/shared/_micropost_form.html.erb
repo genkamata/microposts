@@ -5,13 +5,4 @@
   </div>
     <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
-    <%= form_for @question, :html => { multipart: true } do |f| %>
-  <ul>
-    <li>ファイル１：<%= file_field_tag "images[]", type: :file %></li>
-    <li>ファイル２：<%= file_field_tag "images[]", type: :file %></li>
-  </ul>
-  <ul>
-    <li>ファイル複数選択：<%= file_field_tag "images[]", type: :file, multiple: true %></li>
-</ul>
-
-<% end %>
+  

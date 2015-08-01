@@ -11,7 +11,7 @@
       <label><%= f.radio_button :sex, "2" %>Female</label><br>
       
 
-      <%= f.label :age, "age" %>
+      <%= f.label :age, "Age" %>
       <select name="data[age]">
         <option value="ー">-</option>
         <% 0.upto 100 do |n| %>
@@ -21,6 +21,9 @@
       
       <%= f.label :country %>
       <%= f.country_select :country, prompt: 'Please select a country' %>
+      
+      <%= f.label :Photo %>
+      <%= f.file_field :avatar %>
       
       <%= f.label :email %>
       <%= f.text_field :email %>

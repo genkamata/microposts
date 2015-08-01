@@ -2,6 +2,7 @@
   <aside class="col-md-4">
     <section class="user_info">
       <%= gravatar_for @user %>
+      <%= @user.avatar %>
       <h1><%= @user.name %></h1>
       <div id="stat">
         <div class="stats">
@@ -27,16 +28,6 @@
         <ol class="microposts">
           <%= render @microposts %>
         </ol>
-    <% end %>
   </div>
-  <% unless @article.pictures.empty? %>
-    <p>画像です</p>
-    <ul>
-      <% @article.pictures.each do |pic| %>
-          <li id="picture_<%= pic.id %>">
-            <%= image_tag pic.image.url %>
-          </li>
-      <% end %>
-    </ul>
-<% end %>
+  <% end %>
 </div>
